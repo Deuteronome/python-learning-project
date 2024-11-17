@@ -1,5 +1,6 @@
 from statistics import mean
 from random import shuffle
+from random import randint
 
 def main():
     # basics
@@ -9,7 +10,9 @@ def main():
     # ticket_sale()
     # list_practice()
     # grade_manager()
-    text_generator()
+    # text_generator()
+    # loop_practice()
+    fair_price()
 
 def basics():
     # print("Hello World!")
@@ -114,6 +117,49 @@ def text_generator():
         print("{} {}".format(words[0], words[1]))
     else:
         print("{} {} {}".format(words[len(words)-3], words[len(words)-2], words[len(words)-1]))
+
+def loop_practice():
+    for num_client in range(1, 6):
+        print("Vous êtes le client numéro {}".format(num_client))
+
+    email_list = ["misterbear@e2c.fr", "jpd@e2c.fr", "other@outlook.com", "admin@e2c-app-factory.fr", "noob@e2c.fr"]
+    black_list = ["misterbear@e2c.fr", "admin@e2c-app-factory.fr"]
+
+    for email in email_list:
+        if email in black_list :
+            print("email {} bloqué, envoi impossible".format(email))
+            continue
+
+        print("email envoyé à l'adresse {}".format(email))
+
+    salary =1500
+
+    while salary < 2000 :
+        salary += 120
+        print("salaire actuel : {}".format(salary))
+
+    subscriber_count = 2500
+    month = 24
+
+    for now in range(1, month+1):
+        subscriber_count *= 1.1
+        print("mois {} - nombre d'abonnés : {}".format(now, int(subscriber_count)))
+
+def fair_price():
+    target = randint(1,100)
+    #print(target)
+
+    print("Devinez un nombre entre 1 et 100")
+    count = 1
+    user_choice = int(input("votre proposition : "))
+
+    while(user_choice != target):
+        message = ("Trop petit", "Trop grand")[user_choice > target]
+        print(message)
+        user_choice = int(input("Nouvelle proposition : "))
+        count +=1
+
+    print("Bravo, vous avez trouvé en {} coups".format(count))
 
 if __name__ == '__main__':
      main()
