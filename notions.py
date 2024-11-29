@@ -153,7 +153,7 @@ def fair_price():
     count = 1
     user_choice = int(input("votre proposition : "))
 
-    while(user_choice != target):
+    while user_choice != target:
         message = ("Trop petit", "Trop grand")[user_choice > target]
         print(message)
         user_choice = int(input("Nouvelle proposition : "))
